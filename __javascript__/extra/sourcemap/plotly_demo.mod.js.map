@@ -1,0 +1,11 @@
+{
+	"version": 3,
+	"file": "/home/markus/Desktop/my_parser/__javascript__/plotly_demo.mod.js",
+	"sources": [
+		"/home/markus/Desktop/my_parser/plotly_demo.py"
+	],
+	"sourcesContent": [
+		"__pragma__('jskeys')  # For convenience, allow JS style unquoted string literals as dictionary keys\n\nimport random\nimport math\nimport itertools\n\nxValues = [2 * math.pi * step / 200 for step in range(201)]\nyValuesList = [\n    [math.sin(xValue) + 0.5 * math.sin(xValue * 3 + 0.25 * math.sin(xValue * 5)) for xValue in xValues],\n    [1 if xValue <= math.pi else -1 for xValue in xValues]\n]\nkind = 'linear'\nPlotly.plot(\n    kind,\n    [\n        {\n            x: xValues,\n            y: yValues\n        }\n        for yValues in yValuesList\n    ],\n    {\n        title: kind,\n        xaxis: {title: 'U (t) [V]'},\n        yaxis: {title: 't [s]'}\n    }\n)"
+	],
+	"mappings": "AAAA;AAmBA;AAAA;AAAA;AAnBA;AAEA;AACA;AACA;AAEA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AACA;AAAA;AACA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AACA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAEA;AACA;AAAA;AAGA;AAAA;AAIA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA"
+}

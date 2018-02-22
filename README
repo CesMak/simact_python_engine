@@ -1,0 +1,13 @@
+With numscyrpt you can parse python to javascript and use that in your html browser!
+For howto see the init.py in this folder!
+
+Install:
+numscrypt and typescrypt both install!
+pip install plotly
+in your folder:
+
+transcrypt -b -c -m hello.py 
+
+Links:
+http://www.transcrypt.org/numscrypt/docs/html/supported_constructs.html#basics-creating-and-using-arrays
+
