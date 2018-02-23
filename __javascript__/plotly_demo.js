@@ -1,5 +1,5 @@
 "use strict";
-// Transcrypt'ed from Python, 2018-02-21 22:43:07
+// Transcrypt'ed from Python, 2018-02-23 21:46:47
 function plotly_demo () {
     var __symbols__ = ['__complex__', '__py3.6__', '__esv5__'];
     var __all__ = {};
@@ -2544,7 +2544,7 @@ function plotly_demo () {
 			}
 			return __accu0__;
 		}) ();
-		var yValuesList = list ([(function () {
+		var fisty_values = (function () {
 			var __accu0__ = [];
 			var __iterable0__ = xValues;
 			for (var __index0__ = 0; __index0__ < len (__iterable0__); __index0__++) {
@@ -2552,7 +2552,8 @@ function plotly_demo () {
 				__accu0__.append (math.sin (xValue) + 0.5 * math.sin (xValue * 3 + 0.25 * math.sin (xValue * 5)));
 			}
 			return __accu0__;
-		}) (), (function () {
+		}) ();
+		var secondy_values = (function () {
 			var __accu0__ = [];
 			var __iterable0__ = xValues;
 			for (var __index0__ = 0; __index0__ < len (__iterable0__); __index0__++) {
@@ -2560,7 +2561,8 @@ function plotly_demo () {
 				__accu0__.append ((xValue <= math.pi ? 1 : -(1)));
 			}
 			return __accu0__;
-		}) ()]);
+		}) ();
+		var yValuesList = list ([fisty_values, secondy_values]);
 		var kind = 'linear';
 		Plotly.plot (kind, (function () {
 			var __accu0__ = [];
@@ -2570,7 +2572,7 @@ function plotly_demo () {
 				__accu0__.append (dict ({x: xValues, y: yValues}));
 			}
 			return __accu0__;
-		}) (), dict ({title: kind, xaxis: dict ({title: 'U (t) [V]'}), yaxis: dict ({title: 't [s]'})}));
+		}) (), dict ({title: 'my title', xaxis: dict ({title: 'U (t) [V]'}), yaxis: dict ({title: 't [s]'})}));
 		__pragma__ ('<use>' +
 			'itertools' +
 			'math' +
@@ -2578,7 +2580,9 @@ function plotly_demo () {
 		'</use>')
 		__pragma__ ('<all>')
 			__all__.__name__ = __name__;
+			__all__.fisty_values = fisty_values;
 			__all__.kind = kind;
+			__all__.secondy_values = secondy_values;
 			__all__.xValues = xValues;
 			__all__.yValuesList = yValuesList;
 		__pragma__ ('</all>')

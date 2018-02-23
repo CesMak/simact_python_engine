@@ -10,6 +10,12 @@
     <h2>Simact Python engine</h2>
 
     <div>
+         <textarea id="programm" type="text" onkeypress="return runScript2(event)"  rows="4" cols="50">
+            Here complete programm that is executed line by line!
+         </textarea>
+    </div>
+
+    <div>
         <input id="input" type="text" onkeypress="return runScript(event)" />
     </div>
 
@@ -21,6 +27,19 @@
                 }
         }
     </script>
+
+    <div>
+      <textarea id="output" type="text" rows="4" cols="50">
+           fixed output area. not editable -> or make a div as output? -> matrices nicer ? -> make it scrollable see legend!
+      </textarea>
+    </div>
+
+    <div>
+      <textarea id="local_storage" type="text" rows="4" cols="50">
+           Here local storage! fixed!
+      </textarea>
+    </div>
+
 
      <div id="linear"></div>
      <script src="__javascript__/plotly_demo.min.js"></script>

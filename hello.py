@@ -2,6 +2,7 @@
 from org.transcrypt.stubs.browser import *
 from org.transcrypt.stubs.browser import __main__, __envir__, __pragma__
 from itertools import chain
+import math
 
 # Imports for Transcrypt, skipped runtime by CPython
 if __envir__.executor_name == __envir__.transpiler_name:
@@ -9,13 +10,13 @@ if __envir__.executor_name == __envir__.transpiler_name:
 
 # Imports for CPython, skipped compile time by Transcrypt
 __pragma__ ('skip')
-import numpy as num
+import numpy as num  # -> list of functions: https://transcrypt.org/numscrypt/docs/html/supported_constructs.html
 __pragma__ ('noskip')
 
 
 class SimactBasic():
     #global variables
-    function_list = ['function_1','name2','rank','add','dot']
+    function_list = ['plot','linspace','add','dot']
     local_storage = {}
 
     def __init__(self):
@@ -35,17 +36,67 @@ class SimactBasic():
             return float(input_str)
         return input_str
 
+    def fixed_length_string(self,input_str,max_length):
+        length = len(input_str)
+        if(length>max_length):
+            return input_str[:max_length-3]+"..."
+        else:
+            tmp = max_length-length
+            tt=""
+            for i in range(tmp):
+                tt=tt+" "
+            return input_str+tt
+
+    def print_local_storage(self):
+        output_text =self.fixed_length_string("Variable",12)+self.fixed_length_string("Content",18)+"\t"+"Dim"
+        for key, value in self.local_storage.items(self):
+            dim=((num.array(value).shape))
+            out_str = str(value)
+            out_str =out_str.replace("\n"," ")
+            out_str = out_str.replace(" ","")
+            out_str = out_str.replace("\t", "")
+            out_str = out_str.replace("][", "],[")
+            output_text=output_text+"\n"+self.fixed_length_string(str(key),12)+self.fixed_length_string(out_str,18)+"\t"+ dim
+        document.getElementById('local_storage').value=(output_text)
+
     def dot(self, arg1, arg2): #working try it with: A=dot([[1,2],[3,4]],[[1,1],[0,1]])
-        print("in function dot!")
         __pragma__('opov')
         return arg1@arg2
         __pragma__('noopov')
 
-    def function_2(self, arg1, arg2):
-        print(arg1+arg2)
+    def linspace(self, start, end, disk): #x=linspace(1,2,0.1)
+        # start, end, disk float or real numbers!
+        tmp = []
+        for i in range(start,(end-start)/disk+2):
+            tmp[i-1]=str(start+(i-1)*disk)
+        return (num.array(tmp, dtype=float))
+
+    def plot(self, x_values_in, y_values_in, title="Output_Plot", xname="x", yname="y"):
+        # x values, y_values should come in as ndarray -> convert them to list as plotly works with lists!
+        __pragma__('jskeys')  # For convenience, allow JS style unquoted string literals as dictionary keys
+        x_values = x_values_in.tolist()
+        y_values = y_values_in.tolist()
+        kind = 'linear'
+        Plotly.newPlot(
+            kind,
+                [
+            {
+                x: x_values,
+                y: y_values
+            }
+            #for yValues in y_values_list
+                ],
+                    {
+                    title: title,
+                    xaxis: {title: xname},
+                    yaxis: {title: yname}
+                    }
+        )
+        __pragma__('nojskeys')
+        return num.vstack((x_values_in, y_values_in))
 
     def add(self, arg1, arg2):
-        print(arg1+arg2)
+        return(arg1+arg2)
 
     def parse_input(self):
         input_str = document.getElementById('input').value
@@ -86,6 +137,10 @@ class SimactBasic():
                     result = getattr(simactBasic, function_name)(arguments[0], arguments[1])
                 if len(arguments) == 3:
                     result = getattr(simactBasic, function_name)(arguments[0], arguments[1], arguments[2])
+                if len(arguments) == 4:
+                    result = getattr(simactBasic, function_name)(arguments[0], arguments[1], arguments[2], arguments[3])
+                if len(arguments) == 5:
+                    result = getattr(simactBasic, function_name)(arguments[0], arguments[1], arguments[2],arguments[3], arguments[4])
             else:
                 print("ERROR function "+function_name+" unknown! See help functions")
 
@@ -95,6 +150,8 @@ class SimactBasic():
 
         self.local_storage[left_string]=result
         print(self.local_storage)
+
+        self.print_local_storage()
 
         #data.clear()  # Clears entire dictionary
 simactBasic = SimactBasic()
