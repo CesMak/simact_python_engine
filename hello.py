@@ -85,7 +85,7 @@ class SimactBasic():
     def plot(self, y_values_in, x_values_in=self.linspace(-5,5,0.1), title="Output_Plot", xname="x", yname="y"):
         # x values, y_values should come in as ndarray -> convert them to list as plotly works with lists!
         __pragma__('jskeys')  # For convenience, allow JS style unquoted string literals as dictionary keys
-        if "stringable" in str(type(y_values_in)):
+        if "stringable" in str(type(y_values_in)): #in case of a function: like: y=plot('sqrt(x)')
             title="y="+str(y_values_in)
             y_values_in=self.func(y_values_in, x_values_in)
         x_values = x_values_in.tolist()
