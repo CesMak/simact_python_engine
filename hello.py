@@ -1,8 +1,9 @@
+#https://transcrypt.org/examples#plotly_demo
 # Imports:
 from org.transcrypt.stubs.browser import *
 from org.transcrypt.stubs.browser import __main__, __envir__, __pragma__
 from itertools import chain
-import math
+from math import *
 
 # Imports for Transcrypt, skipped runtime by CPython
 if __envir__.executor_name == __envir__.transpiler_name:
@@ -16,7 +17,7 @@ __pragma__ ('noskip')
 
 class SimactBasic():
     #global variables
-    function_list = ['plot','linspace','add','dot']
+    function_list = ['plot','linspace','add','dot','func']
     local_storage = {}
 
     def __init__(self):
@@ -34,7 +35,9 @@ class SimactBasic():
             return(num.array(input_str,dtype=float))
         if input_str.isdigit():
             return float(input_str)
-        return input_str
+        if "'" in input_str:
+            input_str=input_str.replace("'","")
+        return str(input_str)
 
     def fixed_length_string(self,input_str,max_length):
         length = len(input_str)
@@ -71,9 +74,20 @@ class SimactBasic():
             tmp[i-1]=str(start+(i-1)*disk)
         return (num.array(tmp, dtype=float))
 
-    def plot(self, x_values_in, y_values_in, title="Output_Plot", xname="x", yname="y"):
+    def func(self, formula, x_vec): #x=linspace(0,10,0.1) -> y=func(2*x+sin(x),x)
+        x_vec=x_vec.tolist()
+        result = []
+        for i in range(len(x_vec)):
+            tmp = formula.replace('x',str(x_vec[i]))
+            result[i]=eval(tmp)
+        return num.array(result,dtype=float)
+
+    def plot(self, y_values_in, x_values_in=self.linspace(-5,5,0.1), title="Output_Plot", xname="x", yname="y"):
         # x values, y_values should come in as ndarray -> convert them to list as plotly works with lists!
         __pragma__('jskeys')  # For convenience, allow JS style unquoted string literals as dictionary keys
+        if "stringable" in str(type(y_values_in)):
+            title="y="+str(y_values_in)
+            y_values_in=self.func(y_values_in, x_values_in)
         x_values = x_values_in.tolist()
         y_values = y_values_in.tolist()
         kind = 'linear'
@@ -82,7 +96,7 @@ class SimactBasic():
                 [
             {
                 x: x_values,
-                y: y_values
+                y: y_values,
             }
             #for yValues in y_values_list
                 ],

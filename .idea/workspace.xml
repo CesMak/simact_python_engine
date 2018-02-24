@@ -7,19 +7,10 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/__javascript__/extra/sourcemap/hello.min.js.map" afterPath="$PROJECT_DIR$/__javascript__/extra/sourcemap/hello.min.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/__javascript__/extra/sourcemap/hello.mod.js.map" afterPath="$PROJECT_DIR$/__javascript__/extra/sourcemap/hello.mod.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/__javascript__/extra/sourcemap/hello.shrink.js.map" afterPath="$PROJECT_DIR$/__javascript__/extra/sourcemap/hello.shrink.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/__javascript__/extra/sourcemap/plotly_demo.js.map" afterPath="$PROJECT_DIR$/__javascript__/extra/sourcemap/plotly_demo.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/__javascript__/extra/sourcemap/plotly_demo.min.js.map" afterPath="$PROJECT_DIR$/__javascript__/extra/sourcemap/plotly_demo.min.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/__javascript__/extra/sourcemap/plotly_demo.mod.js.map" afterPath="$PROJECT_DIR$/__javascript__/extra/sourcemap/plotly_demo.mod.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/__javascript__/extra/sourcemap/plotly_demo.shrink.js.map" afterPath="$PROJECT_DIR$/__javascript__/extra/sourcemap/plotly_demo.shrink.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/__javascript__/hello.js" afterPath="$PROJECT_DIR$/__javascript__/hello.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/__javascript__/hello.min.js" afterPath="$PROJECT_DIR$/__javascript__/hello.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/__javascript__/hello.mod.js" afterPath="$PROJECT_DIR$/__javascript__/hello.mod.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/__javascript__/plotly_demo.js" afterPath="$PROJECT_DIR$/__javascript__/plotly_demo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/__javascript__/plotly_demo.min.js" afterPath="$PROJECT_DIR$/__javascript__/plotly_demo.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/__javascript__/plotly_demo.mod.js" afterPath="$PROJECT_DIR$/__javascript__/plotly_demo.mod.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hello.html" afterPath="$PROJECT_DIR$/hello.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hello.py" afterPath="$PROJECT_DIR$/hello.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plotly_demo.py" afterPath="$PROJECT_DIR$/plotly_demo.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -33,7 +24,7 @@
       <file leaf-file-name="hello.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="628">
+            <state relative-caret-position="666">
               <caret line="37" column="33" lean-forward="false" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="33" />
               <folding />
             </state>
@@ -55,10 +46,10 @@
       <file leaf-file-name="hello.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+            <state relative-caret-position="288">
+              <caret line="88" column="39" lean-forward="false" selection-start-line="88" selection-start-column="39" selection-end-line="88" selection-end-column="39" />
               <folding>
-                <element signature="e#11#53#0" expanded="true" />
+                <element signature="e#56#98#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -73,6 +64,8 @@
       <find>input</find>
       <find>float</find>
       <find>linspace</find>
+      <find>local_storage</find>
+      <find>shape</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -87,7 +80,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="4">
     <option name="x" value="2342" />
     <option name="y" value="52" />
     <option name="width" value="944" />
@@ -153,7 +146,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2342" y="52" width="1887" height="1056" extended-state="6" />
+    <frame x="2342" y="52" width="944" height="1028" extended-state="4" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.015898252" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -208,6 +201,34 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/hello.html">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="666">
+          <caret line="37" column="33" lean-forward="false" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plotly_demo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="43" lean-forward="false" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
+          <folding>
+            <element signature="e#101#114#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding>
+            <element signature="e#56#98#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello.html">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
@@ -219,7 +240,7 @@
         <state relative-caret-position="756">
           <caret line="44" column="47" lean-forward="true" selection-start-line="44" selection-start-column="47" selection-end-line="44" selection-end-column="47" />
           <folding>
-            <element signature="e#11#53#0" expanded="true" />
+            <element signature="e#56#98#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -237,7 +258,7 @@
         <state relative-caret-position="630">
           <caret line="37" column="53" lean-forward="false" selection-start-line="37" selection-start-column="53" selection-end-line="37" selection-end-column="87" />
           <folding>
-            <element signature="e#11#53#0" expanded="true" />
+            <element signature="e#56#98#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -255,7 +276,7 @@
         <state relative-caret-position="900">
           <caret line="52" column="85" lean-forward="false" selection-start-line="52" selection-start-column="85" selection-end-line="52" selection-end-column="85" />
           <folding>
-            <element signature="e#11#53#0" expanded="true" />
+            <element signature="e#56#98#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -273,7 +294,7 @@
         <state relative-caret-position="630">
           <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding>
-            <element signature="e#11#53#0" expanded="true" />
+            <element signature="e#56#98#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -301,7 +322,7 @@
         <state relative-caret-position="72">
           <caret line="4" column="13" lean-forward="true" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
           <folding>
-            <element signature="e#11#53#0" expanded="true" />
+            <element signature="e#56#98#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -309,7 +330,7 @@
     <entry file="file://$PROJECT_DIR$/__init__.py" />
     <entry file="file://$PROJECT_DIR$/hello.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="628">
+        <state relative-caret-position="666">
           <caret line="37" column="33" lean-forward="false" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="33" />
           <folding />
         </state>
@@ -327,10 +348,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hello.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        <state relative-caret-position="288">
+          <caret line="88" column="39" lean-forward="false" selection-start-line="88" selection-start-column="39" selection-end-line="88" selection-end-column="39" />
           <folding>
-            <element signature="e#11#53#0" expanded="true" />
+            <element signature="e#56#98#0" expanded="true" />
           </folding>
         </state>
       </provider>
