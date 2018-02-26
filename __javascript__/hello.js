@@ -1,5 +1,5 @@
 "use strict";
-// Transcrypt'ed from Python, 2018-02-24 14:27:30
+// Transcrypt'ed from Python, 2018-02-26 20:43:48
 function hello () {
     var __symbols__ = ['__complex__', '__py3.6__', '__esv5__'];
     var __all__ = {};
@@ -394,6 +394,7 @@ function hello () {
 							if (typeof imag == 'undefined' || (imag != null && imag .hasOwnProperty ("__kwargtrans__"))) {;
 								var imag = null;
 							};
+							print ('in init of complex!');
 							if (imag == null) {
 								if (py_typeof (real) == complex) {
 									self.real = real.real;
@@ -450,6 +451,7 @@ function hello () {
 							return complex ((real * self.real) / denom, (real * self.imag) / denom);
 						});},
 						get __add__ () {return __get__ (this, function (self, other) {
+							print ('now in __standard__ add operator!');
 							if (typeof other === 'number') {
 								return complex (self.real + other, self.imag);
 							}
@@ -472,6 +474,7 @@ function hello () {
 							return complex (real - self.real, -(self.imag));
 						});},
 						get __repr__ () {return __get__ (this, function (self) {
+							print ('in complex class!');
 							return '({}{}{}j)'.format (self.real, (self.imag >= 0 ? '+' : ''), self.imag);
 						});},
 						get __str__ () {return __get__ (this, function (self) {
@@ -3433,12 +3436,48 @@ function hello () {
 		if (__envir__.executor_name == __envir__.transpiler_name) {
 			var num =  __init__ (__world__.numscrypt);
 		}
+		var Symbolic = __class__ ('Symbolic', [object], {
+			__module__: __name__,
+			get __init__ () {return __get__ (this, function (self, numeric_value, symblic_value) {
+				if (typeof symblic_value == 'undefined' || (symblic_value != null && symblic_value .hasOwnProperty ("__kwargtrans__"))) {;
+					var symblic_value = '';
+				};
+				self.numeric_value = numeric_value;
+				self.symblic_value = self.convert_to_no_s (symblic_value);
+			});},
+			get convert_to_no_s () {return __get__ (this, function (self, input_value) {
+				var input_value = input_value.py_replace (' ', '');
+				if (input_value == 's') {
+					var input_value = '1';
+				}
+				else {
+					var input_value = input_value.py_replace ('s', '');
+				}
+				return input_value;
+			});},
+			get __add__ () {return __get__ (this, function (self, other) {
+				var tmp1 = float (self.numeric_value) + float (other.numeric_value);
+				var tmp2 = float (self.symblic_value) + float (other.symblic_value);
+				return ((str (tmp1) + '+') + str (tmp2)) + 's';
+			});},
+			get __mul__ () {return __get__ (this, function (self, other) {
+				var tmp1 = float (self.numeric_value) * float (other.numeric_value);
+				var tmp2 = float (self.symblic_value) * float (other.symblic_value);
+				return ((str (tmp1) + '*') + str (tmp2)) + 's';
+			});},
+			get __str__ () {return __get__ (this, function (self) {
+				return ((str (self.numeric_value) + '+') + self.symblic_value) + 's';
+			});}
+		});
 		var SimactBasic = __class__ ('SimactBasic', [object], {
 			__module__: __name__,
-			function_list: list (['plot', 'linspace', 'add', 'dot', 'func']),
+			function_list: list (['plot', 'linspace', 'add', 'dot', 'func', 'syms']),
 			local_storage: dict ({}),
 			get __init__ () {return __get__ (this, function (self) {
 				// pass;
+			});},
+			get __add__ () {return __get__ (this, function (self, other) {
+				print ('now in mul');
 			});},
 			get convert_format () {return __get__ (this, function (self, input_str) {
 				print (input_str);
@@ -3480,7 +3519,13 @@ function hello () {
 					var __left0__ = __iterable0__ [__index0__];
 					var key = __left0__ [0];
 					var value = __left0__ [1];
-					var dim = num.array (value).shape;
+					var dim = '1';
+					try {
+						var dim = num.array (value).shape;
+					}
+					catch (__except0__) {
+						print ('Could not get shape of ' + key);
+					}
 					var out_str = str (value);
 					var out_str = out_str.py_replace ('\n', ' ');
 					var out_str = out_str.py_replace (' ', '');
@@ -3535,6 +3580,11 @@ function hello () {
 			get add () {return __get__ (this, function (self, arg1, arg2) {
 				return arg1 + arg2;
 			});},
+			get syms () {return __get__ (this, function (self, arg1, arg2) {
+				var a = Symbolic (arg1, arg2);
+				print (a);
+				return a;
+			});},
 			get parse_input () {return __get__ (this, function (self) {
 				var input_str = document.getElementById ('input').value;
 				if (__in__ ('=', input_str)) {
@@ -3586,8 +3636,12 @@ function hello () {
 					else {
 						print (('ERROR function ' + function_name) + ' unknown! See help functions');
 					}
-					print ('result: ');
-					print (result);
+				}
+				else {
+					var scope = dict ({});
+					var a = Symbolic ('2', '4s');
+					scope ['a'] = a;
+					__call__ (print, null, __call__ (eval, null, 'a+a', scope));
 				}
 				self.local_storage [left_string] = result;
 				print (self.local_storage);
@@ -3602,6 +3656,7 @@ function hello () {
 		'</use>')
 		__pragma__ ('<all>')
 			__all__.SimactBasic = SimactBasic;
+			__all__.Symbolic = Symbolic;
 			__all__.__name__ = __name__;
 			__all__.acos = acos;
 			__all__.acosh = acosh;
