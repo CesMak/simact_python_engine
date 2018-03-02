@@ -1,5 +1,5 @@
 ## Test it:
-www.simact.de/simact_python_engine
+http://www.web.simact.de/python_web/hello.html
 
 In this project I just tried a different method of coding a command engine using python code that is
 parsed in javascript. Unfortunately I quit this due to the fact, that transcrpyt offers currently no
