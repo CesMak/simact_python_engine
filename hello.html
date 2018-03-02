@@ -10,8 +10,13 @@
     <h2>Simact Python engine</h2>
 
     <div>
-         <textarea id="programm" type="text" onkeypress="return runScript2(event)"  rows="4" cols="50">
+         <textarea id="programm" type="text" onkeypress="return runScript2(event)"  rows="6" cols="100">
             Here complete programm that is executed line by line!
+
+             This is actually a test of using the transcrypt library as engine but
+             as it does not support sympy not working nicely for my purpose. That
+             is why I did not developed it any further. However you can test the
+             examples below and use it as plotting fast some data.
          </textarea>
     </div>
 
@@ -29,15 +34,18 @@
     </script>
 
     <div>
-      <textarea id="output" type="text" rows="4" cols="50">
-           fixed output area. not editable -> or make a div as output? -> matrices nicer ? -> make it scrollable see legend!
+      <textarea id="output" type="text" rows="6" cols="70">
+           Some workin examples:
           A=dot([[1,2],[3,4]],[[1,1],[0,1]])
+          B=linspace(1,2,0.5)
+          d=plot(sin(x))
+          e=plot(sin(x),x)
           a=syms('1','s')
       </textarea>
     </div>
 
     <div>
-      <textarea id="local_storage" type="text" rows="4" cols="50">
+      <textarea id="local_storage" type="text" rows="6" cols="70">
            Here local storage! fixed!
       </textarea>
     </div>
